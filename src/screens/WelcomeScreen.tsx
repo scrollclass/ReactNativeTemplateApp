@@ -1,6 +1,4 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import { useNavigation } from '@react-navigation/native';
-// import StackHeaderLeftButtonProps from '@react-navigation/stack';
 import { useWalletConnect } from "@walletconnect/react-native-dapp";
 import React from 'react';
 import { ImageBackground, TouchableOpacity } from "react-native";
@@ -11,12 +9,6 @@ import WalletConnectButton from '../components/WalletConnectButton';
 export const WelcomeScreen = () => {
   const connector = useWalletConnect();
   const navigation = useNavigation();
-
-  // useEffect(() => {
-  //   navigation.setOptions({
-  //     headerLeft: () => (<MenuIcon />)
-  //   });
-  // });
 
   const imgString = () => {
     const rand = Math.floor(Math.random() * 7);

@@ -45,7 +45,6 @@ export const ProfileScreen = () => {
     Alert.alert('Updated your name and bio!')
   }
 
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const onChange = (arg: { nativeEvent: { text: any; }; }) => {
     return {
       value: arg.nativeEvent.text,

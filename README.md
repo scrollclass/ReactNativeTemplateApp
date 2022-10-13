@@ -6,6 +6,4 @@ This app uses React Native + Expo + Nhost to serve as a template for an app that
 
 ## To Do
 
-1. Delete all unused libararies
-2. Fix Navigation
-3. Clean up style
+1. Clean up style

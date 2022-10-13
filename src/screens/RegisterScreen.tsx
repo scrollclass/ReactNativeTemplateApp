@@ -8,23 +8,12 @@ import {
   TouchableOpacity,
 } from 'react-native';
 
-// import DatePicker from 'react-native-date-picker';
-
 import InputField from '../components/InputField';
-
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
-// import RegistrationSVG from '../assets/images/misc/registration.svg';
-// import GoogleSVG from '../assets/images/misc/google.svg';
-// import FacebookSVG from '../assets/images/misc/facebook.svg';
-// import TwitterSVG from '../assets/images/misc/twitter.svg';
-// import CustomButton from '../components/CustomButton';
 
 const RegisterScreen = ({navigation}) => {
-  // const [date, setDate] = useState(new Date());
-  // const [open, setOpen] = useState(false);
-  // const [dobLabel, setDobLabel] = useState('Date of Birth');
 
   return (
     <SafeAreaView style={{flex: 1, justifyContent: 'center'}}>

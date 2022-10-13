@@ -1,5 +1,4 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-// import { StackNavigationProp } from "@react-navigation/stack";
 import { Ionicons } from 'expo-vector-icons';
 import React from "react";
 import Home from '../components/Home';
@@ -7,23 +6,10 @@ import MatchesScreen from './MatchesScreen';
 import MessageScreen from './MessagesScreen';
 import OwnedNFTsScreen from './OwnedNFTsScreen';
 import ProfileScreen from './ProfileScreen';
-// import { urlFor } from '../src/lib/client.js'
-
-
-// type HomeStackParametersList = {
-//   client: undefined;
-//   data: undefined;
-//   products: [];
-// };
-
-// interface Props {
-//   navigation: StackNavigationProp<HomeStackParametersList>;
-// }
 
 const Tab = createBottomTabNavigator();
 
 export const RootScreen = () => {
-  // const navigate = Props.navigation.navigate
   return (
     <Tab.Navigator
       initialRouteName="Home"

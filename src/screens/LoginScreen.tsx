@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import {
   SafeAreaView,
   View,
@@ -7,7 +7,6 @@ import {
   TouchableOpacity,
   Alert,
 } from 'react-native';
-// import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import LoginSVG from '../assets/images/misc/login.svg';
 import AppleSVG from '../assets/images/misc/apple.svg';
@@ -18,8 +17,6 @@ import CoinbaseSVG from '../assets/images/misc/coinbase.svg';
 
 import CustomButton from '../components/CustomButton';
 import InputField from '../components/InputField';
-import { AppContext } from '../context/AppProvider';
-
 
 const LoginScreen = (props: { navigation: any }) => {
   const [address, setAddress] = useState<string>("");

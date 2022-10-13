@@ -4,7 +4,6 @@ import { client } from "../lib/client";
 
 
 export const LikedScreen = () => {
-  // const navigate = Props.navigation.navigate
   const getLikes: () => Promise<void> = async () => {
     try {
       const query = '*[_type == "users"]';

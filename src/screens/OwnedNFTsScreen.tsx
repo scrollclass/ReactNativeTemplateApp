@@ -30,12 +30,7 @@ const CardContainer = styled.View`
     padding: 1%
 `
 
-// const CardImage = styled.ImageBackground`
-//     width: 100%;
-//     height: 100%;
-//     overflow: hidden;
-//     border-radius: 20px;
-// `
+
 
 const CardTitle = styled.Text`
     position: absolute;
