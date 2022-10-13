@@ -1,11 +1,11 @@
-# rn-context-reducer-memo-demo
+# A React Native Template Build during YT Livestream
 
-[![CodeQL](https://github.com/jongan69/rn-context-reducer-memo-demo/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/jongan69/rn-context-reducer-memo-demo/actions/workflows/codeql-analysis.yml)
+## How to use
 
-This app demos usage of certain React Native Hooks and Dynamic Touch Opacity in Modified Themed.tsx
+This app uses React Native + Expo + Nhost to serve as a template for an app that uses authentication and Content Posting
 
-Features in AppContext.tsx:
+## To Do
 
-- useContext
-- redux-toolkit
-- redux-persist
+1. Delete all unused libararies
+2. Fix Navigation
+3. Clean up style

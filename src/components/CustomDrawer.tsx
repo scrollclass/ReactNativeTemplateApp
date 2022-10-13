@@ -1,4 +1,4 @@
-import React, { useCallback, useContext } from 'react';
+import React, { useContext } from 'react';
 import {
   View,
   Text,
@@ -13,24 +13,13 @@ import {
 import { useWalletConnect } from '@walletconnect/react-native-dapp';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
-import { AppContext } from '../context/AppProvider';
-import { RootState } from '../context/store';
-import { useSelector, useDispatch } from 'react-redux';
-import { setWallet } from '../context/store/wallet'
 
 const CustomDrawer = props => {
-  const { setCurrentWalletAddress } = useContext(AppContext)
-  const connector = useWalletConnect();
-  const dispatch = useDispatch();
-  const wallet = useSelector((state: RootState) => state.wallet.walletAddress);
-
+  
+  
   const logout = () => {
-    console.log("Logging out: ", wallet)
-    if (connector.connected) {
-      connector.killSession();
-    }
-    setCurrentWalletAddress("")
-    dispatch(setWallet(""))
+    console.log("Logging out: ")
+
   }
 
   return (
@@ -41,7 +30,7 @@ const CustomDrawer = props => {
         <ImageBackground
           source={require('../assets/images/menu-bg.jpeg')}
           style={{ padding: 20 }}>
-          {wallet ?
+          {true ?
             <Image
               source={require('../assets/images/user-profile.jpg')}
               style={{ height: 80, width: 80, borderRadius: 40, marginBottom: 10 }}
@@ -56,7 +45,7 @@ const CustomDrawer = props => {
               fontFamily: 'Roboto-Medium',
               marginBottom: 5,
             }}>
-            {wallet ? `${wallet?.slice(0, 6)}...${wallet.slice(wallet?.length - 4, wallet?.length)}` : 'No username'}
+            {true ? 'Hi' : 'No username'}
           </Text>
           <View style={{ flexDirection: 'row' }}>
             <Text
@@ -65,7 +54,7 @@ const CustomDrawer = props => {
                 fontFamily: 'Roboto-Regular',
                 marginRight: 5,
               }}>
-              {wallet ? `${wallet?.slice(0, 6)}...${wallet.slice(wallet?.length - 4, wallet?.length)}` : 0}
+                Money
             </Text>
             <FontAwesome5 name="coins" size={14} color="#fff" />
           </View>
@@ -76,7 +65,7 @@ const CustomDrawer = props => {
                 fontFamily: 'Roboto-Regular',
                 marginRight: 5,
               }}>
-              {wallet ? `${wallet?.slice(0, 6)}...${wallet.slice(wallet?.length - 4, wallet?.length)}` : 'No Wallet'}
+             Wallet
             </Text>
             <FontAwesome5 name="wallet" size={14} color="#fff" />
           </View>

@@ -2,28 +2,13 @@ import React, { useEffect, useState } from 'react'
 import { View, Text, Image, TouchableOpacity, StyleSheet } from 'react-native'
 import { useNavigation } from '@react-navigation/core'
 import useAuth from '../hooks/useAuth'
-// import getMatchedUserInfo from '../lib/getMatchedUserInfo'
 import tw from 'twrnc';
-// import { collection, query, onSnapshot, orderBy } from '@firebase/firestore'
-// import { db } from "../firebase"
 
 const ChatRow = ({ matchDetails }) => {
   const [matchedUserInfo, setMatchedUserInfo] = useState(null);
   const navigation = useNavigation()
   const { user } = useAuth();
   const [lastMessage, setLastMessage] = useState('')
-
-  // useEffect(() => {
-  //   setMatchedUserInfo(getMatchedUserInfo(matchDetails.users, user.uid));
-  // }, [matchDetails, user]);
-
-  useEffect(() =>
-    // onSnapshot(query(collection(db, "matches", matchDetails.id, 'messages'),
-    //   orderBy('timestamp', 'desc')
-    // ), snapshot => setLastMessage(snapshot.docs[0]?.data()?.message)
-    // ),
-    []
-  )
 
   return (
     <TouchableOpacity

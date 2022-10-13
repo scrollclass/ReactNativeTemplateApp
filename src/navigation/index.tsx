@@ -1,63 +1,76 @@
+/**
+ * If you are not familiar with React Navigation, refer to the "Fundamentals" guide:
+ * https://reactnavigation.org/docs/getting-started
+ *
+ */
+ import {
+   NavigationContainer,
+   DefaultTheme,
+   DarkTheme,
+ } from "@react-navigation/native";
+ import { createNativeStackNavigator } from "@react-navigation/native-stack";
+ import * as React from "react";
+ import { ActivityIndicator, ColorSchemeName } from "react-native";
+ 
+ import Colors from "../constants/Colors";
+ import useColorScheme from "../hooks/useColorScheme";
 
-import { NavigationContainer, DefaultTheme, DarkTheme } from '@react-navigation/native';
-import React, { useContext, useEffect } from 'react';
-import { View } from '../components/Themed';
-import LinkingConfiguration from './LinkingConfiguration';
+ import {
+   RootStackParamList,
+ } from "../types";
+ import LinkingConfiguration from "./LinkingConfiguration";
 
-import { ColorSchemeName, StyleSheet, ActivityIndicator } from 'react-native';
-import { AppContext } from '../context/AppProvider';
-import AuthStack from './AuthStack';
-import AppStack from './AppStack'
-import { RootState } from '../context/store';
-import { useSelector } from 'react-redux';
+ import PinScreen from "../screens/PinScreen";
+ import CreatePinScreen from "../screens/CreatePinScreen";
 
+ import AuthStack from "./AuthStack";
+ import AppStack from "./AppStack";
 
-export default function Navigation({ colorScheme }: { colorScheme: ColorSchemeName }) {
-  const { currentWalletAddress, setCurrentWalletAddress } = useContext(AppContext);
-  const loading = useSelector((state: RootState) => state.wallet.loading);
-  const wallet = useSelector((state: RootState) => state.wallet.walletAddress);
-
-  useEffect(() => {
-    if(wallet){
-      console.log('Wallet found in store, update user data from DB')
-      setCurrentWalletAddress(wallet)
-      console.log('Updated global wallet state from store to', currentWalletAddress)
-    } else {
-      console.log('No wallet to restore: ', currentWalletAddress)
-    }
-  }, [wallet, currentWalletAddress]);
-
-  return (
-    <NavigationContainer
-      linking={LinkingConfiguration}
-      theme={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      {loading
-        ?
-        <View style={[styles.container, styles.horizontal]}>
-          <ActivityIndicator />
-        </View>
-        :
-        <>
-          {wallet
-            ?
-            <AppStack />
-            :
-            <AuthStack />
-          }
-        </>
-      }
-    </NavigationContainer>
-  );
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: "center"
-  },
-  horizontal: {
-    flexDirection: "row",
-    justifyContent: "space-around",
-    padding: 10
-  }
-});
+ import { useAuthenticationStatus } from "@nhost/react";
+ 
+ export default function Navigation({
+   colorScheme,
+ }: {
+   colorScheme: ColorSchemeName;
+ }) {
+   return (
+     <NavigationContainer
+       linking={LinkingConfiguration}
+       theme={colorScheme === "dark" ? DarkTheme : DefaultTheme}
+     >
+       <RootNavigator />
+     </NavigationContainer>
+   );
+ }
+ 
+ /**
+  * A root stack navigator is often used for displaying modals on top of all other content.
+  * https://reactnavigation.org/docs/modal
+  */
+ const Stack = createNativeStackNavigator<RootStackParamList>();
+ 
+ function RootNavigator() {
+   const { isLoading, isAuthenticated } = useAuthenticationStatus();
+ 
+   if (isLoading) {
+     return <ActivityIndicator />;
+   }
+ 
+   return (
+     <Stack.Navigator>
+       {!isAuthenticated ? (
+        <Stack.Screen
+            name="App"
+           component={AppStack}
+        />
+        //  <Stack.Screen
+        //    name="Auth"
+        //    component={AuthStack}
+        //    options={{ headerShown: false }}
+        //  />
+       ) : (      
+           <AppStack />
+       )}
+     </Stack.Navigator>
+   );
+ }

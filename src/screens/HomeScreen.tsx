@@ -12,9 +12,6 @@ import Feather from 'react-native-vector-icons/Feather';
 
 import BannerSlider from '../components/BannerSlider';
 import Layout from '../constants/Layout'
-import { RootState } from '../context/store';
-import { useSelector } from 'react-redux';
-import { AppContext } from '../context/AppProvider';
 
 
 import ListItem from '../components/ListItem';
@@ -26,7 +23,6 @@ const windowWidth = Layout.window.width;
 import CustomSwitch from '../components/CustomSwitch';
 
 export default function HomeScreen({ navigation }) {
-  const wallet = useSelector((state: RootState) => state.wallet.walletAddress);
 
 
   const [gamesTab, setGamesTab] = useState(1);
@@ -49,10 +45,10 @@ export default function HomeScreen({ navigation }) {
             marginBottom: 20,
           }}>
           <Text style={{ fontSize: 18, fontFamily: 'Roboto-Medium' }}>
-            Hello {wallet ? `${wallet?.slice(0, 6)}...${wallet.slice(wallet?.length - 4, wallet?.length)}` : 'No username'}
+            Hello
           </Text>
           <TouchableOpacity onPress={() => navigation.openDrawer()}>
-            {wallet ?
+            {true ?
               <ImageBackground
                 source={require('../assets/images/user-profile.jpg')}
                 style={{ width: 35, height: 35 }}

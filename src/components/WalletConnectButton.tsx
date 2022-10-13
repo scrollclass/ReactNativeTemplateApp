@@ -6,12 +6,6 @@ import { Text, TouchableOpacity } from "react-native";
 import tw from 'twrnc';
 import { AppContext } from '../context/AppContext';
 
-// const shortenAddress = (address: string) => {
-//   return `${address.slice(0, 6)}...${address.slice(
-//     address.length - 4,
-//     address.length
-//   )}`;
-// };
 
 const Button = ({ onPress, label }) => {
   return (

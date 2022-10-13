@@ -13,9 +13,6 @@ import LoginSVG from '../assets/images/misc/login.svg';
 import AppleSVG from '../assets/images/misc/apple.svg';
 import GoogleSVG from '../assets/images/misc/google.svg';
 import CoinbaseSVG from '../assets/images/misc/coinbase.svg';
-import { useWalletConnect } from "@walletconnect/react-native-dapp";
-import { useDispatch, useSelector } from 'react-redux';
-import { setWallet } from '../context/store/wallet'
 // import FacebookSVG from '../assets/images/misc/facebook.svg';
 // import TwitterSVG from '../assets/images/misc/twitter.svg';
 
@@ -25,34 +22,12 @@ import { AppContext } from '../context/AppProvider';
 
 
 const LoginScreen = (props: { navigation: any }) => {
-  const { currentWalletAddress, setCurrentWalletAddress } = useContext(AppContext);
   const [address, setAddress] = useState<string>("");
-  const connector = useWalletConnect();
-  const dispatch = useDispatch();
-
-  const connectWallet = React.useCallback(() => {
-    return connector.connect();
-  }, [connector])
-
-  const disconnectWallet = React.useCallback(() => {
-    setAddress("");
-    connector.killSession();
-    return address
-  }, [connector])
-
-  useEffect(() => {
-    console.log('Wallet Entry is: ', address);
-    if (connector.connected && address.length < 40) {
-      setAddress(connector.accounts[0])
-    }
-  }, [connector, address])
 
   const Login = () => {
     console.log('Address was: ', address)
     if (address.length > 40) {
       console.log(`Wallet Entry ${address} was valid, call or create user in DB: `);
-      dispatch(setWallet(address))
-      setCurrentWalletAddress(address)
     } else {
       Alert.alert('Invalid Wallet Address', `${address} wasn't long enough`)
     }
@@ -88,8 +63,8 @@ const LoginScreen = (props: { navigation: any }) => {
           value={address}
           onChangeText={(value: string) => setAddress(value)}
           inputType="wallet"
-          fieldButtonLabel={connector.connected ? "Disconnect" : "Wallet Connect"}
-          fieldButtonFunction={connector.connected ? disconnectWallet : connectWallet}
+          // fieldButtonLabel={connector.connected ? "Disconnect" : "Wallet Connect"}
+          // fieldButtonFunction={connector.connected ? disconnectWallet : connectWallet}
           keyboardType={undefined} />
 
         <CustomButton label={"Login"} onPress={() => { Login() }} />
