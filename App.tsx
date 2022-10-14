@@ -3,11 +3,12 @@ import { SafeAreaProvider } from "react-native-safe-area-context";
 
 import useCachedResources from "./src/hooks/useCachedResources";
 import useColorScheme from "./src/hooks/useColorScheme";
-import Navigation from "./src/navigation/index2";
+import Navigation from "./src/navigation";
 
 import { NhostClient, NhostReactProvider } from "@nhost/react";
 import * as SecureStore from "expo-secure-store";
 import React from "react";
+import AppProvider from "./src/context/AppProvider";
 
 const nhost = new NhostClient({
   backendUrl: "https://ncdbgemunbqcfxnavetb.nhost.run",
@@ -23,12 +24,14 @@ export default function App() {
     return null;
   } else {
     return (
+    <AppProvider>
       <NhostReactProvider nhost={nhost}>
         <SafeAreaProvider>
           <Navigation colorScheme={colorScheme} />
           <StatusBar />
         </SafeAreaProvider>
       </NhostReactProvider>
+     </AppProvider>
     );
   }
 }

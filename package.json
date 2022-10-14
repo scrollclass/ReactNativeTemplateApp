@@ -14,6 +14,7 @@
     "preset": "jest-expo"
   },
   "dependencies": {
+    "@ethersproject/shims": "^5.7.0",
     "@expo/vector-icons": "^13.0.0",
     "@nhost/react": "^0.13.0",
     "@react-native-async-storage/async-storage": "^1.17.7",
@@ -23,7 +24,9 @@
     "@react-navigation/native-stack": "^6.1.0",
     "@reduxjs/toolkit": "^1.8.3",
     "@walletconnect/react-native-dapp": "^1.7.8",
+    "@web3auth/react-native-sdk": "^3.2.1",
     "buffer": "^6.0.3",
+    "ethers": "^5.7.1",
     "expo": "~45.0.0",
     "expo-asset": "~8.5.0",
     "expo-constants": "~13.1.1",

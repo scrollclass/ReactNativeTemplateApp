@@ -13,13 +13,15 @@ import {
 import { useWalletConnect } from '@walletconnect/react-native-dapp';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
+import { AppContext } from '../context/AppProvider';
 
 const CustomDrawer = props => {
-  
+  const { currentWalletAddress , setCurrentWalletAddress } = React.useContext(AppContext);
+
   
   const logout = () => {
-    console.log("Logging out: ")
-
+    console.log("Logging out of ", currentWalletAddress)
+    setCurrentWalletAddress("")
   }
 
   return (
@@ -65,7 +67,7 @@ const CustomDrawer = props => {
                 fontFamily: 'Roboto-Regular',
                 marginRight: 5,
               }}>
-             Wallet
+             {currentWalletAddress}
             </Text>
             <FontAwesome5 name="wallet" size={14} color="#fff" />
           </View>
