@@ -39,9 +39,9 @@ const TabNavigator = () => {
       screenOptions={{
         headerShown: false,
         tabBarShowLabel: false,
-        tabBarStyle: {backgroundColor: '#AD40AF'},
+        tabBarStyle: {backgroundColor: '#272838'},
         tabBarInactiveTintColor: '#fff',
-        tabBarActiveTintColor: 'yellow',
+        tabBarActiveTintColor: '#347FC4',
       }}>
       <Tab.Screen
         name="Home2"
@@ -49,7 +49,7 @@ const TabNavigator = () => {
         options={({route}) => ({
           tabBarStyle: {
             display: getTabBarVisibility(route),
-            backgroundColor: '#AD40AF',
+            backgroundColor: '#272838',
           },
           tabBarIcon: ({color, size}) => (
             <Ionicons name="home-outline" color={color} size={size} />
@@ -61,7 +61,7 @@ const TabNavigator = () => {
         component={CartScreen}
         options={{
           tabBarBadge: 3,
-          tabBarBadgeStyle: {backgroundColor: 'yellow'},
+          tabBarBadgeStyle: {backgroundColor: '#7D6B91'},
           tabBarIcon: ({color, size}) => (
             <Feather name="shopping-bag" color={color} size={size} />
           ),

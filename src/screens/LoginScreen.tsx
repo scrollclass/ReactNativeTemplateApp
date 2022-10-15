@@ -45,6 +45,7 @@ const LoginScreen = ({ navigation }) => {
   const [address, setAddress] = useState<string>("");
   const [key, setKey] = useState("");
   const [userInfo, setUserInfo] = useState("");
+  const [error, setError] = useState(false)
   
   const Login = async (Provider: string) => {
     try {
@@ -67,12 +68,9 @@ const LoginScreen = ({ navigation }) => {
       setAddress(wallet.address)
       console.log("Logged In", address);
       setCurrentWalletAddress(address)
-  
-      if(!address || !wallet){
-        console.log("Error Please Try again");
-      }
       
     } catch (e) {
+      setError(true)
       console.log(e);
     }
   };
@@ -108,7 +106,7 @@ const LoginScreen = ({ navigation }) => {
           Login
         </Text>
         <InputField
-          label={'Wallet Address'}
+          label={error ? 'Error Please Try again': 'Wallet Address'}
           icon={<Ionicons
             name="wallet"
             size={20}
@@ -173,7 +171,7 @@ const LoginScreen = ({ navigation }) => {
           }}>
           <Text>New to the app?</Text>
           <TouchableOpacity onPress={() =>  navigation.navigate('Register')}>
-            <Text style={{ color: '#AD40AF', fontWeight: '700' }}> Register </Text>
+            <Text style={{ color: '#347FC4', fontWeight: '700' }}> Register </Text>
           </TouchableOpacity>
         </View>
       </View>

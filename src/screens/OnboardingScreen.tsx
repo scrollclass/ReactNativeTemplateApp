@@ -32,7 +32,7 @@ const OnboardingScreen = ({ navigation }) => {
       </View>
       <TouchableOpacity
         style={{
-          backgroundColor: '#AD40AF',
+          backgroundColor: '#347FC4',
           padding: 20,
           width: '90%',
           borderRadius: 10,

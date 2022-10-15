@@ -1,11 +1,11 @@
 {
   "expo": {
-    "name": "rn-auth-demo",
-    "slug": "rn-auth-demo",
+    "name": "web6",
+    "slug": "web6",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./src/assets/images/icon.png",
-    "scheme": "demo",
+    "scheme": "web6",
     "userInterfaceStyle": "automatic",
     "splash": {
       "image": "./src/assets/images/splash.png",

@@ -50,7 +50,7 @@ export default function HomeScreen({ navigation }) {
           <TouchableOpacity onPress={() => navigation.openDrawer()}>
             {true ?
               <ImageBackground
-                source={require('../assets/images/user-profile.jpg')}
+                source={{ uri: 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png'}}
                 style={{ width: 35, height: 35 }}
                 imageStyle={{ borderRadius: 25 }}
               />
@@ -84,10 +84,10 @@ export default function HomeScreen({ navigation }) {
             justifyContent: 'space-between',
           }}>
           <Text style={{ fontSize: 18, fontFamily: 'Roboto-Medium' }}>
-            Upcoming Games
+            Recent
           </Text>
           <TouchableOpacity onPress={() => { }}>
-            <Text style={{ color: '#0aada8' }}>See all</Text>
+            <Text style={{ color: '#5D536B' }}>See all</Text>
           </TouchableOpacity>
         </View>
 
@@ -105,8 +105,8 @@ export default function HomeScreen({ navigation }) {
         <View style={{ marginVertical: 20 }}>
           <CustomSwitch
             selectionMode={1}
-            option1="Free to play"
-            option2="Paid games"
+            option1="Trending"
+            option2="Friends"
             onSelectSwitch={onSelectSwitch}
           />
         </View>

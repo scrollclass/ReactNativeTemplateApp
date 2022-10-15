@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import {
   View,
   Text,
@@ -10,7 +10,6 @@ import {
   DrawerContentScrollView,
   DrawerItemList,
 } from '@react-navigation/drawer';
-import { useWalletConnect } from '@walletconnect/react-native-dapp';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import { AppContext } from '../context/AppProvider';
@@ -28,13 +27,13 @@ const CustomDrawer = props => {
     <View style={{ flex: 1 }}>
       <DrawerContentScrollView
         {...props}
-        contentContainerStyle={{ backgroundColor: '#8200d6' }}>
+        contentContainerStyle={{ backgroundColor: '#272838' }}>
         <ImageBackground
-          source={require('../assets/images/menu-bg.jpeg')}
+          source={{uri:'https://media3.giphy.com/avatars/kenaim/eQgeR40yR0o0.gif'}}
           style={{ padding: 20 }}>
           {true ?
             <Image
-              source={require('../assets/images/user-profile.jpg')}
+              source={{ uri: 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png'}}
               style={{ height: 80, width: 80, borderRadius: 40, marginBottom: 10 }}
             />
             :
@@ -42,34 +41,45 @@ const CustomDrawer = props => {
           }
           <Text
             style={{
+              padding: 3,
+              fontWeight: 'bold',
+              textShadowColor: '#fff',
+              textShadowRadius: 10,
               color: '#fff',
               fontSize: 18,
               fontFamily: 'Roboto-Medium',
               marginBottom: 5,
             }}>
-            {true ? 'Hi' : 'No username'}
+            {true ? 'Hi Person' : 'No username'}
           </Text>
           <View style={{ flexDirection: 'row' }}>
             <Text
               style={{
+                fontWeight: 'bold',
+                textShadowColor: '#000',
+                textShadowRadius: 10,
                 color: '#fff',
                 fontFamily: 'Roboto-Regular',
                 marginRight: 5,
               }}>
-                Money
+                $ Money
             </Text>
-            <FontAwesome5 name="coins" size={14} color="#fff" />
+            <FontAwesome5 name="coins" size={14} color="#FFF" />
           </View>
           <View style={{ flexDirection: 'row', paddingTop: 15 }}>
             <Text
               style={{
+                fontWeight: 'bold',
+                textShadowColor: '#000',
+                textShadowRadius: 10,                
+                textShadowOffset: {width: 0.7, height: 1},
                 color: '#fff',
                 fontFamily: 'Roboto-Regular',
                 marginRight: 5,
               }}>
              {currentWalletAddress}
             </Text>
-            <FontAwesome5 name="wallet" size={14} color="#fff" />
+            <FontAwesome5 name="wallet" size={14} color="#FFF" />
           </View>
         </ImageBackground>
         <View style={{ flex: 1, backgroundColor: '#fff', paddingTop: 10 }}>

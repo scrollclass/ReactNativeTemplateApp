@@ -9,7 +9,7 @@ import {
   DarkTheme,
 } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import React, { useState } from "react";
+import React from "react";
 import { StyleSheet, Dimensions, ColorSchemeName } from "react-native";
 
 import {
@@ -164,6 +164,7 @@ function RootNavigator() {
       ) : (
         <Stack.Screen
           name="App"
+          options={{ headerShown: false }}
           component={AppStack}
         />
       )}
